@@ -25,10 +25,10 @@ Insertion Sort, optimized|j
 # Examples
 
 Jump to..
-- [Bubble Sort](##Bubble-Sort)
-- [Bubble Sort, optimized](##Bubble-Sort,-optimized)
-- [Insertion Sort](##Insertion-Sort)
-- [Insertion Sort, optimized](##Insertion-Sort,-optimized)
+- [Bubble Sort](#Bubble-Sort)
+- [Bubble Sort, optimized](#Bubble-Sort,-optimized)
+- [Insertion Sort](#Insertion-Sort)
+- [Insertion Sort, optimized](#Insertion-Sort,-optimized)
 
 ## [Bubble Sort](#Examples)
 ```
