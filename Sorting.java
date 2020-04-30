@@ -21,7 +21,7 @@ public class Sorting
     {
 
         // Exit with status code 1 if one or fewer arguments provided
-        if (args.length < 1)
+        if (args.length <= 1)
         {
             System.out.println("Usage: java Sorting -option [integer1, ..., integerN]");
             System.exit(1);
@@ -131,12 +131,14 @@ public class Sorting
         printAlgorithm(true, NAME, array);
 
         boolean swapped = false;
+        boolean isSorted = false;
         int pass = 0;
 
         for (int i = 0; i < array.length - 1; i++)
         {   
             pass = i + 1;
             printPassHeader(pass, array);
+            isSorted = true;
 
             // We can make an optimization to the LCC by considering the value of i
             for (int j = 0; j < array.length - i - 1; j++)
@@ -152,11 +154,18 @@ public class Sorting
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
                     swapped = true;
+                    isSorted = false;
                 }
 
                 // Print summary for this step
                 String actionStmt = String.format("%s", swapped ? String.format(SWAP_STMT, array[j + 1], array[j]) : "none");
                 printStep(compareStmt, actionStmt, array);
+            }
+
+            if (isSorted)
+            {
+                printPadding(1);
+                break;
             }
 
             printPassFooter(pass, array);
@@ -214,7 +223,7 @@ public class Sorting
     private static char getOpt(String option, String options)
     {
         final char UNDEF = '?';
-        if (option.equals("-") || option.equals("--"))
+        if (option.length() <= 1 || option.equals("-") || option.equals("--"))
         {
             return UNDEF;
         }
@@ -322,5 +331,15 @@ public class Sorting
     private static void printAlgorithm(boolean before, String name, int[] array)
     {
         System.out.printf("%s %s: %s\n\n", (before ? "Before" : "After"), name, Arrays.toString(array));
+    }
+
+    private static void printPadding(int n)
+    {
+        SCANNER.nextLine();
+
+        for (int i = 0; i < n; i++)
+        {
+            System.out.println();
+        }
     }
 }
