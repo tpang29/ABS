@@ -96,13 +96,13 @@ public class Algorithms
                 PrintUtils.step(compareStmt, actionStmt, array);
             }
 
+            PrintUtils.passFooter(pass, array);
+
             if (isSorted)
             {
-                PrintUtils.padding(1);
                 break;
             }
 
-            PrintUtils.passFooter(pass, array);
         }
 
         PrintUtils.algorithm(false, NAME, array);
