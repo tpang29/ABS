@@ -1,6 +1,11 @@
 # ABS - Algorithms by Step
 This program aims to help the user developer a clearer understanding of the actions taken during each step of common algorithms.
-# Usage
+
+Jump to...
+- [Usage](#Usage)
+- [Examples](#Examples)
+
+# [Usage](#ABS---Algorithms-by-Step)
 
 ## Setup
 - download the `src` folder 
@@ -22,9 +27,9 @@ Name|Option
 [Insertion Sort](#Insertion-Sort)|i
 [Insertion Sort Optimized](#Insertion-Sort-Optimized)|j
 
-# Examples
+# [Examples](#ABS---Algorithms-by-Step)
 
-## [Bubble Sort](#Examples)
+## [Bubble Sort](#Options)
 ```
 User-MacBook-Pro:src User$ java Sorting -b 3 2 1
 Before bubble sort: [3, 2, 1]
@@ -52,7 +57,7 @@ After pass 2, array is: [1, 2, 3]
 After bubble sort: [1, 2, 3]
 ```
 
-## [Bubble Sort Optimized](#Examples)
+## [Bubble Sort Optimized](#Options)
 ```
 User-MacBook-Pro:src User$ java Sorting -c 3 2 1
 Before bubble sort optimized: [3, 2, 1]
@@ -79,7 +84,7 @@ After pass 2, array is: [1, 2, 3]
 After bubble sort optimized: [1, 2, 3]
 ```
 
-## [Insertion Sort](#Examples)
+## [Insertion Sort](#Options)
 ```
 User-MacBook-Pro:src user$ java Sorting -i 2 1 3 4
 Before insertion sort: [2, 1, 3, 4]
@@ -117,7 +122,7 @@ After pass 3, array is: [1, 2, 3, 4]
 After insertion sort: [1, 2, 3, 4]
 ```
 
-## [Insertion Sort Optimized](#Examples)
+## [Insertion Sort Optimized](#Options)
 ```
 User-MacBook-Pro:src user$ java Sorting -j 2 1 3 4
 Before insertion sort optimized: [2, 1, 3, 4]
