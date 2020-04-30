@@ -85,35 +85,29 @@ After bubble sort optimized: [1, 2, 3]
 
 ## [Insertion Sort](#Options)
 ```
-User-MacBook-Pro:src user$ java Sorting -i 2 1 3 4
-Before insertion sort: [2, 1, 3, 4]
+User-MacBook-Pro:src user$ java Sorting -i 3 2 1
+Before insertion sort: [3, 2, 1]
 
-Starting pass 1, array is: [2, 1, 3, 4]
+Starting pass 1, array is: [3, 2, 1]
 --------------------------------------------------------------------------------------------------------------
 Comparing                Action                   Array State
 --------------------------------------------------------------------------------------------------------------
-compare 1 with 2         swapped 2 with 1         [1, 2, 3, 4]
+compare 2 with 3         replace 2 with 3         [3, 3, 1]
+found insert position    replace 3 with 2         [2, 3, 1]
 --------------------------------------------------------------------------------------------------------------
-After pass 1, array is: [1, 2, 3, 4]
+After pass 1, array is: [2, 3, 1]
 
 
-Starting pass 2, array is: [1, 2, 3, 4]
+Starting pass 2, array is: [2, 3, 1]
 --------------------------------------------------------------------------------------------------------------
 Comparing                Action                   Array State
 --------------------------------------------------------------------------------------------------------------
-compare 3 with 2         none                     [1, 2, 3, 4]
+compare 1 with 3         replace 1 with 3         [2, 3, 3]
+compare 1 with 2         replace 3 with 2         [2, 2, 3]
+found insert position    replace 2 with 1         [1, 2, 3]
 --------------------------------------------------------------------------------------------------------------
-After pass 2, array is: [1, 2, 3, 4]
+After pass 2, array is: [1, 2, 3]
 
 
-Starting pass 3, array is: [1, 2, 3, 4]
---------------------------------------------------------------------------------------------------------------
-Comparing                Action                   Array State
---------------------------------------------------------------------------------------------------------------
-compare 4 with 3         none                     [1, 2, 3, 4]
---------------------------------------------------------------------------------------------------------------
-After pass 3, array is: [1, 2, 3, 4]
-
-
-After insertion sort: [1, 2, 3, 4]
+After insertion sort: [1, 2, 3]
 ```
