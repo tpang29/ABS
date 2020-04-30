@@ -10,8 +10,9 @@ public class PrintUtils
     final static String ALGO_OPTIONS = "bci";
     final static String TABLE_FORMAT = "%-25s%-25s%s";
     // final static String SWAP_STMT = "swapped %d with %d";
-    final static String SWAP_STMT = "replaced %d with %d";
+    // final static String SWAP_STMT = "replaced %d with %d";
     final static String CMP_STMT = "compare %d with %d";
+    final static String STMT = "%s %d with %d";
     final static String HL = "--------------------------------------------------------------------------------------------------------------" ;
 
     /* Print the current pass header */
@@ -68,9 +69,9 @@ public class PrintUtils
         return String.format(CMP_STMT, element1, element2);
     }
 
-    /* Generate an action string for each step */
-    public static String action(boolean swapped, int element1, int element2)
+    public static String action(boolean swapped, String verb, int element1, int element2)
     {
-        return String.format("%s", swapped ? String.format(SWAP_STMT, element1, element2) : "none");
+        
+        return String.format("%s", swapped ? String.format(STMT, verb, element1, element2) : "none");
     }
 }
