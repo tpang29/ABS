@@ -9,7 +9,8 @@ public class PrintUtils
     // Print/Formatting constants
     final static String ALGO_OPTIONS = "bci";
     final static String TABLE_FORMAT = "%-25s%-25s%s";
-    final static String SWAP_STMT = "swapped %d with %d";
+    // final static String SWAP_STMT = "swapped %d with %d";
+    final static String SWAP_STMT = "replaced %d with %d";
     final static String CMP_STMT = "compare %d with %d";
     final static String HL = "--------------------------------------------------------------------------------------------------------------" ;
 
