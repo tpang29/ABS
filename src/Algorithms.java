@@ -125,36 +125,36 @@ public class Algorithms
         PrintUtils.algorithm(true, NAME, array);
 
         boolean swapped = false;
-        int pass = 0;
         int j = 0;
-        int temp = 0;
+        int current = 0;
 
         for (int i = 1; i < array.length; i++)
         {   
-            pass = i;
-            PrintUtils.passHeader(pass, array);
+            PrintUtils.passHeader(i, array);
             j = i;
-            temp = array[j];
+            current = array[j];
             swapped = false;
 
-            while (j > 0 && temp < array[j - 1])
+            // If current is less than adjacent (left) shift elements over
+            while (j > 0 && current < array[j - 1])
             {
                 swapped = true;
-                String compareStmt = PrintUtils.compare(temp, array[j - 1]);
+                String compareStmt = PrintUtils.compare(current, array[j - 1]);
                 String actionStmt = PrintUtils.action(swapped, VERB, array[j], array[j - 1]);
                 array[j] = array[j - 1];
                 
-                
                 PrintUtils.step(compareStmt, actionStmt, array);
+
+                // Check next element to the left
                 j--;
             }
             
-            String actionStmt = PrintUtils.action(swapped, VERB, array[j], temp);
+            String actionStmt = PrintUtils.action(swapped, VERB, array[j], current);
             
-            array[j] = temp;
+            array[j] = current;
             PrintUtils.step("found insert position", actionStmt, array);
 
-            PrintUtils.passFooter(pass, array);
+            PrintUtils.passFooter(i, array);
         }
 
         PrintUtils.algorithm(false, NAME, array);
