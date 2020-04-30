@@ -61,11 +61,13 @@ public class PrintUtils
         }
     }
 
+    /* Generate a compare string for each step */
     public static String compare(int element1, int element2)
     {
         return String.format(CMP_STMT, element1, element2);
     }
 
+    /* Generate an action string for each step */
     public static String action(boolean swapped, int element1, int element2)
     {
         return String.format("%s", swapped ? String.format(SWAP_STMT, element1, element2) : "none");
