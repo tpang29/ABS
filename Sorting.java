@@ -63,7 +63,7 @@ public class Sorting
         {
             case 'b': bubbleSort(array); break;
             case 'c': bubbleSortOptimized(array); break;
-            // case 'i': insertionSort(array); break;
+            case 'i': insertionSort(array); break;
             default: System.out.printf("Unexpected option flag: %c\n", option); break;
         }
     }
@@ -169,44 +169,44 @@ public class Sorting
     }
 
     /* Insertion Sort algorithm */
-    // private static void insertionSort(int[] array)
-    // {
-    //     final String NAME = "insertion sort";
-    //     printAlgorithm(true, NAME, array);
+    private static void insertionSort(int[] array)
+    {
+        final String NAME = "insertion sort";
+        PrintUtils.algorithm(true, NAME, array);
 
-    //     boolean swapped = false;
-    //     int pass = 0;
+        boolean swapped = false;
+        int pass = 0;
 
-    //     for (int i = 1; i < array.length; i++)
-    //     {   
-    //         pass = i;
-    //         printPassHeader(pass, array);
+        for (int i = 1; i < array.length; i++)
+        {   
+            pass = i;
+            PrintUtils.passHeader(pass, array);
 
-    //         for (int j = i; j > 0; j--)
-    //         {   
-    //             // utility variables for step summary 
-    //             swapped = false;
-    //             String compareStmt = String.format(CMP_STMT, array[j], array[j - 1]);
+            for (int j = i; j > 0; j--)
+            {   
+                // utility variables for step summary 
+                swapped = false;
+                String compareStmt = PrintUtils.compare(array[j], array[j - 1]);
                 
-    //             // if element on the right is greater than adjacent element on the left
-    //             if (array[j] < array[j - 1])
-    //             {
-    //                 int temp = array[j];
-    //                 array[j] = array[j - 1];
-    //                 array[j - 1] = temp;
-    //                 swapped = true;
-    //             }
+                // if element on the right is greater than adjacent element on the left
+                if (array[j] < array[j - 1])
+                {
+                    int temp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
+                    swapped = true;
+                }
 
-    //             // Print summary for this step
-    //             String actionStmt = String.format("%s", swapped ? String.format(SWAP_STMT, array[j], array[j - 1]) : "none");
-    //             printStep(compareStmt, actionStmt, array);
-    //         }
+                // Print summary for this step
+                String actionStmt = PrintUtils.action(swapped, array[j], array[j - 1]);
+                PrintUtils.step(compareStmt, actionStmt, array);
+            }
 
-    //         printPassFooter(pass, array);
-    //     }
+            PrintUtils.passFooter(pass, array);
+        }
 
-    //     printAlgorithm(false, NAME, array);
-    // }
+        PrintUtils.algorithm(false, NAME, array);
+    }
 
     /*
         INPUT UTILITY METHODS
