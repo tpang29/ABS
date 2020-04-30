@@ -1,13 +1,8 @@
-// import java.util.Scanner;
 import java.util.Arrays;
-// import java.util.Set;
-// import java.util.List;
-// import java.util.ArrayList;
-// import java.util.HashSet;
 
 public class Sorting
 {
-    final static String ALGO_OPTIONS = "bci";
+    final static String ALGO_OPTIONS = "bcij";
 
     public static void main(String[] args)
     {
@@ -64,6 +59,7 @@ public class Sorting
             case 'b': Algorithms.bubbleSort(array); break;
             case 'c': Algorithms.bubbleSortOptimized(array); break;
             case 'i': Algorithms.insertionSort(array); break;
+            case 'j': Algorithms.insertionSortOptimized(array); break;
             default: System.out.printf("Unexpected option flag: %c\n", option); break;
         }
     }
