@@ -110,55 +110,14 @@ public class Algorithms
 
     /*
         Insertion Sort algorithm
-    */
-    public static void insertionSort(int[] array)
-    {
-        final String NAME = "insertion sort";
-        PrintUtils.algorithm(true, NAME, array);
-        boolean swapped = false;
-        int pass = 0;
-
-        for (int i = 1; i < array.length; i++)
-        {   
-            pass = i;
-            PrintUtils.passHeader(pass, array);
-
-            for (int j = i; j > 0; j--)
-            {   
-                // utility variables for step summary 
-                swapped = false;
-                String compareStmt = PrintUtils.compare(array[j], array[j - 1]);
-                
-                // if element on the right is greater than adjacent element on the left
-                if (array[j] < array[j - 1])
-                {
-                    int temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
-                    swapped = true;
-                }
-                
-                // Print summary for this step
-                String actionStmt = PrintUtils.action(swapped, array[j], array[j - 1]);
-                PrintUtils.step(compareStmt, actionStmt, array);
-            }
-
-            PrintUtils.passFooter(pass, array);
-        }
-
-        PrintUtils.algorithm(false, NAME, array);
-    }
-
-    /*
-        Insertion Sort algorithm, optimized
 
         - terminate early if a comparison is made where no swap need occur
         - this prevents us from making unnecessary comparisons to elements
             we know to be <=
     */
-    public static void insertionSortOptimized(int[] array)
+    public static void insertionSort(int[] array)
     {
-        final String NAME = "insertion sort optimized";
+        final String NAME = "insertion sort";
         PrintUtils.algorithm(true, NAME, array);
 
         boolean swapped = false;
