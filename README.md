@@ -17,18 +17,12 @@ Currently, there are four algorithms from which to choose. They are as follows:
 
 Name|Option
 :-|:-:
-Bubble Sort|b
-Bubble Sort, optimized|c
-Insertion Sort|i
-Insertion Sort, optimized|j
+[Bubble Sort](#Bubble-Sort)|b
+[Bubble Sort Optimized](#Bubble-Sort-Optimized)|c
+[Insertion Sort](#Insertion-Sort)|i
+[Insertion Sort Optimized](#Insertion-Sort-Optimized)|j
 
 # Examples
-
-Jump to..
-- [Bubble Sort](#Bubble-Sort)
-- [Bubble Sort Optimized](#Bubble-Sort-Optimized)
-- [Insertion Sort](#Insertion-Sort)
-- [Insertion Sort Optimized](#Insertion-Sort-Optimized)
 
 ## [Bubble Sort](#Examples)
 ```
