@@ -3,15 +3,16 @@ import java.util.Scanner;
 
 public class PrintUtils
 {
-        // Press enter to consume new line and move to next step
-        final static Scanner SCANNER = new Scanner(System.in);
+    // Press enter to consume new line and move to next step
+    final static Scanner SCANNER = new Scanner(System.in);
 
-        // Print/Formatting constants
-        final static String ALGO_OPTIONS = "bci";
-        final static String TABLE_FORMAT = "%-25s%-25s%s";
-        final static String SWAP_STMT = "swapped %d with %d";
-        final static String CMP_STMT = "compare %d with %d";
-        final static String HL = "--------------------------------------------------------------------------------------------------------------" ;
+    // Print/Formatting constants
+    final static String ALGO_OPTIONS = "bci";
+    final static String TABLE_FORMAT = "%-25s%-25s%s";
+    final static String SWAP_STMT = "swapped %d with %d";
+    final static String CMP_STMT = "compare %d with %d";
+    final static String HL = "--------------------------------------------------------------------------------------------------------------" ;
+
     /* Print the current pass header */
     public static void passHeader(int pass, int[] array)
     {
@@ -58,5 +59,15 @@ public class PrintUtils
         {
             System.out.println();
         }
+    }
+
+    public static String compare(int element1, int element2)
+    {
+        return String.format(CMP_STMT, element1, element2);
+    }
+
+    public static String action(boolean swapped, int element1, int element2)
+    {
+        return String.format("%s", swapped ? String.format(SWAP_STMT, element1, element2) : "none");
     }
 }
