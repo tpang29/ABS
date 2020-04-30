@@ -4,19 +4,10 @@ import java.util.Set;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashSet;
-// import PrintUtils.*;
 
 public class Sorting
 {
-    // Press enter to consume new line and move to next step
-    final static Scanner SCANNER = new Scanner(System.in);
-
-    // Print/Formatting constants
     final static String ALGO_OPTIONS = "bci";
-    final static String TABLE_FORMAT = "%-25s%-25s%s";
-    final static String SWAP_STMT = "swapped %d with %d";
-    final static String CMP_STMT = "compare %d with %d";
-    final static String HL = "--------------------------------------------------------------------------------------------------------------" ;
 
     public static void main(String[] args)
     {
@@ -71,7 +62,7 @@ public class Sorting
         switch (option)
         {
             case 'b': bubbleSort(array); break;
-            // case 'c': bubbleSortOptimized(array); break;
+            case 'c': bubbleSortOptimized(array); break;
             // case 'i': insertionSort(array); break;
             default: System.out.printf("Unexpected option flag: %c\n", option); break;
         }
@@ -103,7 +94,7 @@ public class Sorting
             {   
                 // utility variables for step summary 
                 swapped = false;
-                String compareStmt = String.format(CMP_STMT, array[j], array[j + 1]);
+                String compareStmt = PrintUtils.compare(array[j], array[j + 1]);
                 
                 // swap if a pair of adjacent numbers is in decreasing order 
                 if (array[j] > array[j + 1])
@@ -114,8 +105,10 @@ public class Sorting
                     swapped = true;
                 }
 
+                // Create action for this step
+                String actionStmt = PrintUtils.action(swapped, array[j + 1], array[j]);
+
                 // Print summary for this step
-                String actionStmt = String.format("%s", swapped ? String.format(SWAP_STMT, array[j + 1], array[j]) : "none");
                 PrintUtils.step(compareStmt, actionStmt, array);
             }
 
@@ -126,54 +119,54 @@ public class Sorting
     }
 
     /* Bubble Sort algorithm, optimized */
-    // private static void bubbleSortOptimized(int[] array)
-    // {
-    //     final String NAME = "bubble sort optimized";
-    //     printAlgorithm(true, NAME, array);
+    private static void bubbleSortOptimized(int[] array)
+    {
+        final String NAME = "bubble sort optimized";
+        PrintUtils.algorithm(true, NAME, array);
 
-    //     boolean swapped = false;
-    //     boolean isSorted = false;
-    //     int pass = 0;
+        boolean swapped = false;
+        boolean isSorted = false;
+        int pass = 0;
 
-    //     for (int i = 0; i < array.length - 1; i++)
-    //     {   
-    //         pass = i + 1;
-    //         printPassHeader(pass, array);
-    //         isSorted = true;
+        for (int i = 0; i < array.length - 1; i++)
+        {   
+            pass = i + 1;
+            PrintUtils.passHeader(pass, array);
+            isSorted = true;
 
-    //         // We can make an optimization to the LCC by considering the value of i
-    //         for (int j = 0; j < array.length - i - 1; j++)
-    //         {   
-    //             // utility variables for step summary 
-    //             swapped = false;
-    //             String compareStmt = String.format(CMP_STMT, array[j], array[j + 1]);
+            // We can make an optimization to the LCC by considering the value of i
+            for (int j = 0; j < array.length - i - 1; j++)
+            {   
+                // utility variables for step summary 
+                swapped = false;
+                String compareStmt = PrintUtils.compare(array[j], array[j + 1]);
                 
-    //             // swap if a pair of adjacent numbers is in decreasing order 
-    //             if (array[j] > array[j + 1])
-    //             {
-    //                 int temp = array[j];
-    //                 array[j] = array[j + 1];
-    //                 array[j + 1] = temp;
-    //                 swapped = true;
-    //                 isSorted = false;
-    //             }
+                // swap if a pair of adjacent numbers is in decreasing order 
+                if (array[j] > array[j + 1])
+                {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    swapped = true;
+                    isSorted = false;
+                }
 
-    //             // Print summary for this step
-    //             String actionStmt = String.format("%s", swapped ? String.format(SWAP_STMT, array[j + 1], array[j]) : "none");
-    //             printStep(compareStmt, actionStmt, array);
-    //         }
+                // Print summary for this step
+                String actionStmt = PrintUtils.action(swapped, array[j + 1], array[j]);
+                PrintUtils.step(compareStmt, actionStmt, array);
+            }
 
-    //         if (isSorted)
-    //         {
-    //             printPadding(1);
-    //             break;
-    //         }
+            if (isSorted)
+            {
+                PrintUtils.padding(1);
+                break;
+            }
 
-    //         printPassFooter(pass, array);
-    //     }
+            PrintUtils.passFooter(pass, array);
+        }
 
-    //     printAlgorithm(false, NAME, array);
-    // }
+        PrintUtils.algorithm(false, NAME, array);
+    }
 
     /* Insertion Sort algorithm */
     // private static void insertionSort(int[] array)
