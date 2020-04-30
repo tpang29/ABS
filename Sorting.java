@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashSet;
+// import PrintUtils.*;
 
 public class Sorting
 {
@@ -70,8 +71,8 @@ public class Sorting
         switch (option)
         {
             case 'b': bubbleSort(array); break;
-            case 'c': bubbleSortOptimized(array); break;
-            case 'i': insertionSort(array); break;
+            // case 'c': bubbleSortOptimized(array); break;
+            // case 'i': insertionSort(array); break;
             default: System.out.printf("Unexpected option flag: %c\n", option); break;
         }
     }
@@ -87,7 +88,7 @@ public class Sorting
     private static void bubbleSort(int[] array)
     {
         final String NAME = "bubble sort";
-        printAlgorithm(true, NAME, array);
+        PrintUtils.algorithm(true, NAME, array);
 
         boolean swapped = false;
         int pass = 0;
@@ -95,7 +96,7 @@ public class Sorting
         for (int i = 0; i < array.length - 1; i++)
         {   
             pass = i + 1;
-            printPassHeader(pass, array);
+            PrintUtils.passHeader(pass, array);
 
             // We can make an optimization to the LCC by considering the value of i
             for (int j = 0; j < array.length - 1; j++)
@@ -115,104 +116,104 @@ public class Sorting
 
                 // Print summary for this step
                 String actionStmt = String.format("%s", swapped ? String.format(SWAP_STMT, array[j + 1], array[j]) : "none");
-                printStep(compareStmt, actionStmt, array);
+                PrintUtils.step(compareStmt, actionStmt, array);
             }
 
-            printPassFooter(pass, array);
+            PrintUtils.passFooter(pass, array);
         }
 
-        printAlgorithm(false, NAME, array);
+        PrintUtils.algorithm(false, NAME, array);
     }
 
     /* Bubble Sort algorithm, optimized */
-    private static void bubbleSortOptimized(int[] array)
-    {
-        final String NAME = "bubble sort optimized";
-        printAlgorithm(true, NAME, array);
+    // private static void bubbleSortOptimized(int[] array)
+    // {
+    //     final String NAME = "bubble sort optimized";
+    //     printAlgorithm(true, NAME, array);
 
-        boolean swapped = false;
-        boolean isSorted = false;
-        int pass = 0;
+    //     boolean swapped = false;
+    //     boolean isSorted = false;
+    //     int pass = 0;
 
-        for (int i = 0; i < array.length - 1; i++)
-        {   
-            pass = i + 1;
-            printPassHeader(pass, array);
-            isSorted = true;
+    //     for (int i = 0; i < array.length - 1; i++)
+    //     {   
+    //         pass = i + 1;
+    //         printPassHeader(pass, array);
+    //         isSorted = true;
 
-            // We can make an optimization to the LCC by considering the value of i
-            for (int j = 0; j < array.length - i - 1; j++)
-            {   
-                // utility variables for step summary 
-                swapped = false;
-                String compareStmt = String.format(CMP_STMT, array[j], array[j + 1]);
+    //         // We can make an optimization to the LCC by considering the value of i
+    //         for (int j = 0; j < array.length - i - 1; j++)
+    //         {   
+    //             // utility variables for step summary 
+    //             swapped = false;
+    //             String compareStmt = String.format(CMP_STMT, array[j], array[j + 1]);
                 
-                // swap if a pair of adjacent numbers is in decreasing order 
-                if (array[j] > array[j + 1])
-                {
-                    int temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                    swapped = true;
-                    isSorted = false;
-                }
+    //             // swap if a pair of adjacent numbers is in decreasing order 
+    //             if (array[j] > array[j + 1])
+    //             {
+    //                 int temp = array[j];
+    //                 array[j] = array[j + 1];
+    //                 array[j + 1] = temp;
+    //                 swapped = true;
+    //                 isSorted = false;
+    //             }
 
-                // Print summary for this step
-                String actionStmt = String.format("%s", swapped ? String.format(SWAP_STMT, array[j + 1], array[j]) : "none");
-                printStep(compareStmt, actionStmt, array);
-            }
+    //             // Print summary for this step
+    //             String actionStmt = String.format("%s", swapped ? String.format(SWAP_STMT, array[j + 1], array[j]) : "none");
+    //             printStep(compareStmt, actionStmt, array);
+    //         }
 
-            if (isSorted)
-            {
-                printPadding(1);
-                break;
-            }
+    //         if (isSorted)
+    //         {
+    //             printPadding(1);
+    //             break;
+    //         }
 
-            printPassFooter(pass, array);
-        }
+    //         printPassFooter(pass, array);
+    //     }
 
-        printAlgorithm(false, NAME, array);
-    }
+    //     printAlgorithm(false, NAME, array);
+    // }
 
     /* Insertion Sort algorithm */
-    private static void insertionSort(int[] array)
-    {
-        final String NAME = "insertion sort";
-        printAlgorithm(true, NAME, array);
+    // private static void insertionSort(int[] array)
+    // {
+    //     final String NAME = "insertion sort";
+    //     printAlgorithm(true, NAME, array);
 
-        boolean swapped = false;
-        int pass = 0;
+    //     boolean swapped = false;
+    //     int pass = 0;
 
-        for (int i = 1; i < array.length; i++)
-        {   
-            pass = i;
-            printPassHeader(pass, array);
+    //     for (int i = 1; i < array.length; i++)
+    //     {   
+    //         pass = i;
+    //         printPassHeader(pass, array);
 
-            for (int j = i; j > 0; j--)
-            {   
-                // utility variables for step summary 
-                swapped = false;
-                String compareStmt = String.format(CMP_STMT, array[j], array[j - 1]);
+    //         for (int j = i; j > 0; j--)
+    //         {   
+    //             // utility variables for step summary 
+    //             swapped = false;
+    //             String compareStmt = String.format(CMP_STMT, array[j], array[j - 1]);
                 
-                // if element on the right is greater than adjacent element on the left
-                if (array[j] < array[j - 1])
-                {
-                    int temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
-                    swapped = true;
-                }
+    //             // if element on the right is greater than adjacent element on the left
+    //             if (array[j] < array[j - 1])
+    //             {
+    //                 int temp = array[j];
+    //                 array[j] = array[j - 1];
+    //                 array[j - 1] = temp;
+    //                 swapped = true;
+    //             }
 
-                // Print summary for this step
-                String actionStmt = String.format("%s", swapped ? String.format(SWAP_STMT, array[j], array[j - 1]) : "none");
-                printStep(compareStmt, actionStmt, array);
-            }
+    //             // Print summary for this step
+    //             String actionStmt = String.format("%s", swapped ? String.format(SWAP_STMT, array[j], array[j - 1]) : "none");
+    //             printStep(compareStmt, actionStmt, array);
+    //         }
 
-            printPassFooter(pass, array);
-        }
+    //         printPassFooter(pass, array);
+    //     }
 
-        printAlgorithm(false, NAME, array);
-    }
+    //     printAlgorithm(false, NAME, array);
+    // }
 
     /*
         INPUT UTILITY METHODS
@@ -296,50 +297,51 @@ public class Sorting
         PRINTING HELPER METHODS 
     */
 
-    /* Print the current pass header */
-    private static void printPassHeader(int pass, int[] array)
-    {
-        final String COL_1 = "Comparing";
-        final String COL_2 = "Action";
-        final String COL_3 = "Array State";
+    // /* Print the current pass header */
+    // private static void printPassHeader(int pass, int[] array)
+    // {
+    //     final String COL_1 = "Comparing";
+    //     final String COL_2 = "Action";
+    //     final String COL_3 = "Array State";
 
-        System.out.printf("Starting pass %d, array is: %s\n", pass, Arrays.toString(array));
-        System.out.printf("%s\n", HL);
-        String header = String.format(TABLE_FORMAT + "\n", COL_1, COL_2, COL_3);
-        System.out.print(header);
-        System.out.printf("%s", HL);        
-    }
+    //     System.out.printf("Starting pass %d, array is: %s\n", pass, Arrays.toString(array));
+    //     System.out.printf("%s\n", HL);
+    //     String header = String.format(TABLE_FORMAT + "\n", COL_1, COL_2, COL_3);
+    //     System.out.print(header);
+    //     System.out.printf("%s", HL);        
+    // }
 
-    /* Print the current step: what was compared, action taken, and the state of the integer array */
-    private static void printStep(String compareStmt, String actionStmt, int[] arrayState)
-    {
-        SCANNER.nextLine();
-        String step = String.format(TABLE_FORMAT, compareStmt, actionStmt, Arrays.toString(arrayState));
-        System.out.print(step);
-    }
+    // /* Print the current step: what was compared, action taken, and the state of the integer array */
+    // private static void printStep(String compareStmt, String actionStmt, int[] arrayState)
+    // {
+    //     SCANNER.nextLine();
+    //     String step = String.format(TABLE_FORMAT, compareStmt, actionStmt, Arrays.toString(arrayState));
+    //     System.out.print(step);
+    // }
 
-    /* Print footer for current pass */
-    private static void printPassFooter(int pass, int[] array)
-    {
-        SCANNER.nextLine();
-        System.out.printf("%s\n", HL);
-        System.out.printf("After pass %d, array is: %s\n\n", pass, Arrays.toString(array));
-        SCANNER.nextLine();        
-    }
+    // /* Print footer for current pass */
+    // private static void printPassFooter(int pass, int[] array)
+    // {
+    //     SCANNER.nextLine();
+    //     System.out.printf("%s\n", HL);
+    //     System.out.printf("After pass %d, array is: %s\n\n", pass, Arrays.toString(array));
+    //     SCANNER.nextLine();        
+    // }
 
-    /* Print algorithm details at beginning and end */
-    private static void printAlgorithm(boolean before, String name, int[] array)
-    {
-        System.out.printf("%s %s: %s\n\n", (before ? "Before" : "After"), name, Arrays.toString(array));
-    }
+    // /* Print algorithm details at beginning and end */
+    // private static void printAlgorithm(boolean before, String name, int[] array)
+    // {
+    //     System.out.printf("%s %s: %s\n\n", (before ? "Before" : "After"), name, Arrays.toString(array));
+    // }
 
-    private static void printPadding(int n)
-    {
-        SCANNER.nextLine();
+    // /* Consume a new line and print n number of new lines */
+    // private static void printPadding(int n)
+    // {
+    //     SCANNER.nextLine();
 
-        for (int i = 0; i < n; i++)
-        {
-            System.out.println();
-        }
-    }
+    //     for (int i = 0; i < n; i++)
+    //     {
+    //         System.out.println();
+    //     }
+    // }
 }
