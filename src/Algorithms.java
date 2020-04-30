@@ -7,11 +7,13 @@ import java.util.HashSet;
 
 public class Algorithms
 {
+    final static String STMT = "%s %d with %d";
     /*
         Bubble Sort algorith, non-optimized
     */
     public static void bubbleSort(int[] array)
     {
+        final String VERB = "swap";
         final String NAME = "bubble sort";
         PrintUtils.algorithm(true, NAME, array);
 
@@ -40,7 +42,7 @@ public class Algorithms
                 }
 
                 // Create action for this step
-                String actionStmt = PrintUtils.action(swapped, array[j + 1], array[j]);
+                String actionStmt = PrintUtils.action(swapped, VERB, array[j + 1], array[j]);
 
                 // Print summary for this step
                 PrintUtils.step(compareStmt, actionStmt, array);
@@ -61,6 +63,7 @@ public class Algorithms
     */
     public static void bubbleSortOptimized(int[] array)
     {
+        final String VERB = "swap";
         final String NAME = "bubble sort optimized";
         PrintUtils.algorithm(true, NAME, array);
 
@@ -92,7 +95,7 @@ public class Algorithms
                 }
 
                 // Print summary for this step
-                String actionStmt = PrintUtils.action(swapped, array[j + 1], array[j]);
+                String actionStmt = PrintUtils.action(swapped, VERB, array[j + 1], array[j]);
                 PrintUtils.step(compareStmt, actionStmt, array);
             }
 
@@ -117,6 +120,7 @@ public class Algorithms
     // */
     public static void insertionSort(int[] array)
     {
+        final String VERB = "replace";
         final String NAME = "insertion sort";
         PrintUtils.algorithm(true, NAME, array);
 
@@ -137,18 +141,18 @@ public class Algorithms
             {
                 swapped = true;
                 String compareStmt = PrintUtils.compare(temp, array[j - 1]);
-                String actionStmt = PrintUtils.action(swapped, array[j], array[j - 1]);
+                String actionStmt = PrintUtils.action(swapped, VERB, array[j], array[j - 1]);
                 array[j] = array[j - 1];
                 
                 
                 PrintUtils.step(compareStmt, actionStmt, array);
                 j--;
             }
-            String compareStmt = PrintUtils.compare(temp, array[j]);
-            String actionStmt = PrintUtils.action(swapped, array[j], temp);
+            
+            String actionStmt = PrintUtils.action(swapped, VERB, array[j], temp);
             
             array[j] = temp;
-            PrintUtils.step(compareStmt, actionStmt, array);
+            PrintUtils.step("found insert position", actionStmt, array);
 
             PrintUtils.passFooter(pass, array);
         }
