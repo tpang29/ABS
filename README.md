@@ -18,7 +18,7 @@ Jump to...
 - Use `control` + `c` to terminate during execution
 
 ## Options
-Currently, there are four algorithms from which to choose. They are as follows:
+Below are the algorithms from which to choose. They are as follows:
 
 Name|Option
 :-|:-:
