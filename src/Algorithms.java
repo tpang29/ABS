@@ -108,13 +108,13 @@ public class Algorithms
         PrintUtils.algorithm(false, NAME, array);
     }
 
-    /*
-        Insertion Sort algorithm
+    // /*
+    //     Insertion Sort algorithm
 
-        - terminate early if a comparison is made where no swap need occur
-        - this prevents us from making unnecessary comparisons to elements
-            we know to be <=
-    */
+    //     - terminate early if a comparison is made where no swap need occur
+    //     - this prevents us from making unnecessary comparisons to elements
+    //         we know to be <=
+    // */
     public static void insertionSort(int[] array)
     {
         final String NAME = "insertion sort";
@@ -122,37 +122,33 @@ public class Algorithms
 
         boolean swapped = false;
         int pass = 0;
+        int j = 0;
+        int temp = 0;
 
         for (int i = 1; i < array.length; i++)
         {   
             pass = i;
             PrintUtils.passHeader(pass, array);
+            j = i;
+            temp = array[j];
+            swapped = false;
 
-            for (int j = i; j > 0; j--)
-            {   
-                // utility variables for step summary 
-                swapped = false;
-                String compareStmt = PrintUtils.compare(array[j], array[j - 1]);
-                
-                // if element on the right is greater than adjacent element on the left
-                if (array[j] < array[j - 1])
-                {
-                    int temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
-                    swapped = true;
-                }
-                
-                // Print summary for this step
+            while (j > 0 && temp < array[j - 1])
+            {
+                swapped = true;
+                String compareStmt = PrintUtils.compare(temp, array[j - 1]);
                 String actionStmt = PrintUtils.action(swapped, array[j], array[j - 1]);
+                array[j] = array[j - 1];
+                
+                
                 PrintUtils.step(compareStmt, actionStmt, array);
-
-                // Early termination if no swaps detected
-                if (!swapped)
-                {
-                    break;
-                }
+                j--;
             }
+            String compareStmt = PrintUtils.compare(temp, array[j]);
+            String actionStmt = PrintUtils.action(swapped, array[j], temp);
+            
+            array[j] = temp;
+            PrintUtils.step(compareStmt, actionStmt, array);
 
             PrintUtils.passFooter(pass, array);
         }
