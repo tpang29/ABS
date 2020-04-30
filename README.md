@@ -26,9 +26,9 @@ Insertion Sort, optimized|j
 
 Jump to..
 - [Bubble Sort](#Bubble-Sort)
-- [Bubble Sort, optimized](#Bubble-Sort,\-optimized)
+- [Bubble Sort Optimized](#Bubble-Sort-Optimized)
 - [Insertion Sort](#Insertion-Sort)
-- [Insertion Sort, optimized](#Insertion-Sort,\-optimized)
+- [Insertion Sort Optimized](#Insertion-Sort-Optimized)
 
 ## [Bubble Sort](#Examples)
 ```
