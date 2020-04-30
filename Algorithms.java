@@ -138,10 +138,15 @@ public class Algorithms
                     array[j - 1] = temp;
                     swapped = true;
                 }
-
+                
                 // Print summary for this step
                 String actionStmt = PrintUtils.action(swapped, array[j], array[j - 1]);
                 PrintUtils.step(compareStmt, actionStmt, array);
+
+                if (!swapped)
+                {
+                    break;
+                }
             }
 
             PrintUtils.passFooter(pass, array);
