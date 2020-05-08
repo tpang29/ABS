@@ -75,7 +75,7 @@ public class Algorithms
         {   
             pass = i + 1;
             PrintUtils.passHeader(pass, array);
-            isSorted = true;
+            isSorted = false;
 
             // We can make an optimization to the LCC by considering the value of i
             for (int j = 0; j < array.length - i - 1; j++)
