@@ -159,4 +159,67 @@ public class Algorithms
 
         PrintUtils.algorithm(false, NAME, array);
     }
+
+    static int[] mergeSortParts (int[] nums, int start, int end, int pass) {
+        final String VERB_1 = "split";
+        final String VERB_2 = "merge";
+        boolean merged = false;
+
+        System.out.println("Working on array: " + Arrays.toString(nums) + "\nFrom: " + start + " To: " + end + " in Pass: " + pass);
+        if(start < end) {
+            int mid = start + ((end - start) / 2);
+            
+            System.out.println("Splitting from " + start + " to " + mid);
+            nums = mergeSortParts(nums, start, mid, pass + 1);
+
+            System.out.println("Array after split:" + Arrays.toString(Arrays.copyOfRange(nums, start, mid)));
+
+            System.out.println("Splitting from " + mid + 1  + " to " + end);
+            nums = mergeSortParts(nums, mid + 1, end, pass + 1);
+
+            System.out.println("Array after split:" + Arrays.toString(Arrays.copyOfRange(nums, mid + 1, end)));
+
+            int i = start;
+            int j = mid + 1;
+
+            System.out.println("Merging arrays..");
+            System.out.println(Arrays.toString(Arrays.copyOfRange(nums, i, j - 1)));
+            System.out.println(Arrays.toString(Arrays.copyOfRange(nums, j, end)));
+
+            while (i<= j && j <= end) {
+                if (nums[i] > nums[j]) {
+                    int k = j;
+                    int temp = nums[j];
+                    while (k > i) {
+                        nums[k] = nums[k - 1];
+                        k--;
+                    }
+                    nums[i] = temp;
+                    i++;
+                    j++;
+                } else {
+                    i++;
+                }
+            }
+        }
+        System.out.println("Final Array: " + Arrays.toString(nums));
+        return nums;
+    }
+
+
+    public static void mergeSort(int[] array) {
+        final String NAME = "Merge Sort";
+        int pass = 0;
+
+        int start = 0;
+        int end = array.length - 1;
+
+        // PrintUtils.passHeader(pass, array);
+        array = mergeSortParts(array, start, end, pass);
+        
+        PrintUtils.algorithm(false, NAME, array);
+
+    }
+
+
 }
