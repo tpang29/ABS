@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Sorting
 {
-    final static String ALGO_OPTIONS = "bci";
+    final static String ALGO_OPTIONS = "bcim";
 
     public static void main(String[] args)
     {
@@ -59,6 +59,7 @@ public class Sorting
             case 'b': Algorithms.bubbleSort(array); break;
             case 'c': Algorithms.bubbleSortOptimized(array); break;
             case 'i': Algorithms.insertionSort(array); break;
+            case 'm': Algorithms.mergeSort(array); break;
             default: System.out.printf("Unexpected option flag: %c\n", option); break;
         }
     }
